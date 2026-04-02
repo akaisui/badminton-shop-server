@@ -31,12 +31,12 @@ module.exports = {
       timestamps: true,
       underscored: true,
     },
-    dialectOptions: process.env.DB_SSL === 'true' ? {
+    dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false,
+        rejectUnauthorized: false, // Essential for services like Neon, Render, Supabase
       },
-    } : {},
+    },
     pool: {
       max: 5,
       min: 0,
